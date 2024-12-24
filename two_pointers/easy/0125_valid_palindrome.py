@@ -4,7 +4,7 @@ https://leetcode.com/problems/valid-palindrome/
 
 A phrase is a palindrome if, after converting all uppercase letters into
 lowercase letters and removing all non-alphanumeric characters,
-it reads the same forward and backward. Alphanumeric characters 
+it reads the same forward and backward. Alphanumeric characters
 include letters and numbers.
 Given a string s, return true if it is a palindrome, or false otherwise.
 
@@ -21,25 +21,17 @@ class Solution:
         left, right = 0, len(s) - 1
 
         while left < right:
-            while left < right and not self.alphaNum(s[left]):
+            if not s[left].isalnum():
                 left += 1
-            while left < right and not self.alphaNum(s[right]):
+
+            elif not s[right].isalnum():
                 right -= 1
 
-            if s[left].lower() != s[right].lower():
+            elif s[left].lower() != s[right].lower():
                 return False
 
-            left, right = left + 1, right - 1
+            else:
+                left += 1
+                right -= 1
 
         return True
-
-    def alphaNum(self, ch) -> bool:
-        """
-        Alphanumeric characters include letters and numbers.
-        A->Z or a->z or 0->9
-        """
-        return (
-            ord('A') <= ord(ch) <= ord('Z') or
-            ord('a') <= ord(ch) <= ord('z') or
-            ord('0') <= ord(ch) <= ord('9')
-        )
