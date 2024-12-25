@@ -19,19 +19,11 @@ class Solution:
         Time complexity O(n)
         Space complexity O(1)
         """
+        l, r = 0, len(s) - 1
 
-        length = len(s)
-        i = 0
-        j = length - 1
-
-        while i <= j:
-            i_char = s[i]
-            j_char = s[j]
-
+        while l < r:
             # swap 2 characters
-            s[i], s[j] = j_char, i_char
+            s[l], s[r] = s[r], s[l]
 
-            i += 1
-            j -= 1
-
-        return s
+            l += 1
+            r -= 1
