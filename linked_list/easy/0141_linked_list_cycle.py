@@ -33,7 +33,17 @@ class Solution:
         Time complexity O(n)
         Space complexity O(n)
         """
-        # TODO
+        visited = set()
+        current = head
+
+        while current:
+            if current in visited:
+                return True
+
+            visited.add(current)
+            current = current.next
+
+        return False
 
         """
         Soution 2: 
@@ -41,13 +51,13 @@ class Solution:
         Time complexity O(n)
         Space complexity O(1)
         """
-        slow, fast = head, head
+        # slow, fast = head, head
 
-        while fast and fast.next:  # if not reach the end (Null)
-            slow = slow.next  # move by 1 step
-            fast = fast.next.next  # move by 2 steps
+        # while fast and fast.next:  # if not reach the end (Null)
+        #     slow = slow.next  # move by 1 step
+        #     fast = fast.next.next  # move by 2 steps
 
-            if slow == fast:  # if they meet at a node, then there is a cycle
-                return True
+        #     if slow == fast:  # if they meet at a node, then there is a cycle
+        #         return True
 
-        return False
+        # return False
