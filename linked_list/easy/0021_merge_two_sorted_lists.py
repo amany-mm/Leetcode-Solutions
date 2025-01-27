@@ -29,7 +29,9 @@ class Solution:
         The pointer Tail always points to the last node in the result list,
         so appending new nodes is easy.
         Time complexity O(n + m) where n and m are the size of list1 and list2
-        Space complexity O(n)
+        Space complexity O(1) constant amount of extra space by creating a dummy
+        node and the pointer. The merging is done in place without requiring
+        any additional data structure.
         """
         dummy = ListNode()
         tail = dummy  # to avoid edge case of empty linkedlist
@@ -43,16 +45,13 @@ class Solution:
                 tail.next = list2
                 list2 = list2.next
 
-            # update it regardeless list node is inserted
+            # update it regardless list node is inserted
             tail = tail.next
 
         # if only one list node is not null, we will tail the
         # remaining portion and insert it to the end of tail
 
-        if list1:
-            tail.next = list1
-        else:
-            tail.next = list2
+        tail.next = list1 if list1 else list2
 
         return dummy.next
 
