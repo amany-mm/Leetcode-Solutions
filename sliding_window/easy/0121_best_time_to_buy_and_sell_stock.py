@@ -21,6 +21,8 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         """
         Sliding window technique
+        l: buy
+        r: sell
         Time complexity: O(n)
         Space complexity: O(1)
         """
