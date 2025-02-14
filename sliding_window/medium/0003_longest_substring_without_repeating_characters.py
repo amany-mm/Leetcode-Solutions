@@ -17,7 +17,7 @@ class Solution:
         """
         Using sliding window technique
         Time complexity O(n)
-        Space cimplexity O(n)
+        Space complexity O(n)
         """
         l = r = 0
         res = 0
