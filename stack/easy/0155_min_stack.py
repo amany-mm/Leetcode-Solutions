@@ -39,7 +39,10 @@ At most 3 * 104 calls will be made to push, pop, top, and getMin.
 
 
 class MinStack:
-
+    """
+    Time complexity O(1)
+    Space complexity O(n)
+    """
     def __init__(self):
         self.stack = []
         self.min_stack = []
